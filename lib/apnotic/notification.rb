@@ -8,7 +8,7 @@ module Apnotic
     private
 
     def aps
-      super.tap do |result|
+      {}.tap do |result|
         result.merge!(alert: alert) if alert
         result.merge!(badge: badge) if badge
         result.merge!(sound: sound) if sound
@@ -20,7 +20,7 @@ module Apnotic
     end
 
     def to_hash
-      super.tap do |result|
+      { aps: aps }.tap do |result|
         result.merge!(custom_payload) if custom_payload
       end
     end

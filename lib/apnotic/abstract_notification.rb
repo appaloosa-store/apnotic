@@ -28,12 +28,8 @@ module Apnotic
 
     private
 
-    def aps
-      {}
-    end
-
     def to_hash
-      { aps: aps }
+      raise NotImplementedError, 'implement the to_hash method in a child class'
     end
   end
 end

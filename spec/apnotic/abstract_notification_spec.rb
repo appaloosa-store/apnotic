@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Apnotic::Notification do
+describe Apnotic::AbstractNotification do
   let(:notification) { Apnotic::AbstractNotification.new("token") }
 
   describe "attributes" do
@@ -42,6 +42,6 @@ describe Apnotic::Notification do
   describe "#body" do
     subject { notification.body }
 
-    it { is_expected.to eq ({ aps: {} }.to_json) }
+    it { expect { subject }.to raise_error(NotImplementedError) }
   end
 end
